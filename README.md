@@ -19,7 +19,7 @@
 
 ### Driver Code and Test Files
 
-* program6.c
+* program5.c
     * include the driver code with your submission, but do not alter it, except where specified by comments
 * profile.c/.h
 
@@ -52,8 +52,8 @@
     * [2 pts] Test 25 Passed: clear Queuevector and Queuelist
     * [4 pts] Test 26 Passed: delete Stackvector and Stacklist without error
 * **Part D** (5 points): Profile
-   * [5 pts] completes profiling wihtout error
-* Style Guidelines and Memory Leaks
+   * [5 pts] completes profiling without error
+* **Style Guidelines and Memory Leaks**
     * You will lose significant points for the following:
         * Makefile does not have requested format and labels (-5 points)
         * Memory leak or error detected in valgrind  (-10 points)
@@ -73,14 +73,17 @@ __In this program, you will learn to__:
 
 For the last program you and partner are going to build both a dynamic array (vector) and a linked list. Each data structure will be tested to ensure the validity of its operations. Once that is complete and you know your data structures are working, we are going to use them as internal data structures for a Stack and a Queue. I have provided code that will evaluate both versions of the Stack and Queue to see which provides better performance.
 
-To make our code more portable, we are going to wrap our data in a Data struct, and build all our operations around this data type. In a header file, data.h, create a struct, Data, that contains the following:
-    * a single integer called, ‘value’
+To make our code more portable, we are going to wrap our data in a Data struct and build all our operations around this data type. In a header file, data.h, create a struct, Data, that contains the following:
+* a single integer called, ‘value’
+
 Since we are going to be passing by value, we will not need a constructor or destructor.
+
+:warning: *For all Data Structures, you may (and probably should) add additional functions, methods, and attributes, but what follows is the required minimum interface*
 
 ## Part A: Vectors
 You must break up your code into vector.h and vector.c according to the conventions we discussed in class.
-:warning: *You may add additional functions, methods, and attributes, but the following is the required minimum interface*
-* Create a dynamic array data structure, Vector. You must create your struct and internal array on the heap (using malloc). Your dynamic array should have, at minimum, the following:
+
+Create a dynamic array data structure, Vector. You must create your struct and internal array on the heap (using malloc). Your dynamic array should have, at minimum, the following:
     ```
         Data data //A pointer to a Data struct array
         int current_size//an integer containing the current size
@@ -90,13 +93,12 @@ You must break up your code into vector.h and vector.c according to the conventi
         void (*remove)(Vector *, int)//a function pointer to an delete function
         void (*delete)(Vector *)//a function pointer to a destructor
     ```
-    * You may add additional attributes if you need them
-
 You must create the following functions for your Vector
 * Constructor - initializes the vector struct attributes and returns a pointer to a Vector struct created on the heap
     * `Vector * newVector()`
 
-:warning: The remaining function names are suggestions since the driver code calls them all via function pointers
+:bulb: The remaining function names are suggestions since the driver code calls them all via function pointers
+
 * Insert - inserts an element at the specified index. Use the 2n+1 geometric expansion formula to increase the size of your list if the index is out of the current bounds.
     * `void insertVector(Vector *, int, Data);`
 * Remove - deletes an element from the list at the specified index.
@@ -106,20 +108,20 @@ You must create the following functions for your Vector
     * `Data * readVector(Vector * array, int index);`
 * Destructor - free all allocated memory for the vector
     * `void * deleteVector`
-        * free’s all struct memory
+        * frees all struct memory
         * You should return a NULL pointer from any delete procedure. This is just a convention.
 
 ## Part B: Linked Lists
 You must break up your code into list.h and list.c according to the conventions we discussed in class.
-:warning: *You may add additional functions, methods, and attributes, but the following is the required minimum interface*
+
 Your node struct must have the following:
 ```
-    Node * next/prev; // A pointer to the next and previous nodes
+    struct Node * next/prev; // A pointer to the next and previous nodes
     Data data; // A data object (:note: not a pointer)
 ```
 Your list struct must have the following:
 ```
-    int head, tail //A pointer to nodes at the head and tail
+    Node * head, tail //A pointer to nodes at the head and tail
     void (*insert)(List *, int, Data) //a function pointer to an insert function
     Data * (*read)(List *, int) //a function pointer to a read function
     void (*remove)(List *, int) //a function pointer to an delete function
@@ -131,6 +133,9 @@ Create a doubly linked list using a list and node structs. You must create your 
         * A pointer to a head and tail node, both initialized to NULL
         * set function pointers to the appropriate functions
         * returns a pointer to a List struct created on the heap
+
+:bulb: The remaining function names are suggestions since the driver code calls them all via function pointers
+
 * Insert - inserts an element at a specified index in the list.
     * `void insertList(List * list, int index, Data value);`
         * Adds the Data to the specified index
@@ -143,8 +148,6 @@ Create a doubly linked list using a list and node structs. You must create your 
         * If the index is out of bounds, return a NULL pointer
 
 ## Part C: Stacks and Queues
-
-:warning: *You may add additional functions, methods, and attributes, but the following is the required minimum interface*
 
 ### Stack
 You must break up your code into stack.h and stack.c according to the conventions we discussed in class.
@@ -164,11 +167,14 @@ Your Stacklist must have the following:
 ```
 
 You must create your Stacklist on the heap (using malloc). Your Stacklist should have the following operations:
-* Constructor - initializes the linked list struct:
+* Constructor - initializes the List struct:
     * `Stacklist * newStacklist()`
-        * initializes internal list struct
+        * initializes internal List struct
         * set function pointers to the appropriate functions
         * returns a pointer to a Stacklist struct created on the heap
+
+:bulb: The remaining function names are suggestions since the driver code calls them all via function pointers
+
 * Push - pushes a value onto the top of the stack
     * `void pushStacklist(struct stacklist *, Data);`
         * Adds the Data to the stack
@@ -241,10 +247,13 @@ You must create your Queuelist on the heap (using malloc). Your Queuelist should
         * initializes internal list struct
         * set function pointers to the appropriate functions
         * returns a pointer to a Queuelist struct created on the heap
-* Push - pushes a value onto the Queue
+
+:bulb: The remaining function names are suggestions since the driver code calls them all via function pointers
+
+* Enqueue - pushes a value onto the Queue
     * `void enqueueQueuelist(struct queuelist *, Data);`
         * Adds the Data to the Queue
-* Pop - deletes and returns an element from the Queue
+* Dequeue - deletes and returns an element from the Queue
     * `Data dequeueQueuelist(struct queuelist *);`
         * Removes an element from the Queue
         * If the Queue is empty return a Data struct with -1 for a value
@@ -277,6 +286,9 @@ You must create your Queuevector on the heap (using malloc). Your Queuevector sh
         * initializes internal vector struct
         * set function pointers to the appropriate functions
         * returns a pointer to a Queuevector struct created on the heap
+
+:bulb: The remaining function names are suggestions since the driver code calls them all via function pointers
+
 * Enqueue - pushes a value onto the queue
     * `void pushQueuevector(struct queuevector *, Data);`
         * Adds the Data to the queue
@@ -295,11 +307,11 @@ You must create your Queuevector on the heap (using malloc). Your Queuevector sh
     * `void * deleteQueuevector(struct queuevector *);`
         * frees the queue memory, including the queue itself
 
-##Part D: Profiling
+## Part D: Profiling
 
 Welcome to the easy part. If you made it this far, you can sit back and relax. I have included a source file called profile.c/.h. Inside this file I have implemented functions that test the operations for both your stacks and queues.
 
-Pay attention to the times output.
+Pay attention to the output.
 * What implementation is better for insertion?
 * Reading?
 * Overall?
