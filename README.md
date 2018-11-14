@@ -300,17 +300,20 @@ You must create your Queuevector on the heap (using malloc). Your Queuevector sh
 Welcome to the easy part. If you made it this far, you can sit back and relax. I have included a source file called profile.c/.h. Inside this file I have implemented functions that test the operations for both your stacks and queues.
 
 Pay attention to the times output.
-* What implementation is better for insertion? 
+* What implementation is better for insertion?
 * Reading?
 * Overall?
 
 ## Part E: Submission
 
 ### Required file naming and organization:
-* program4.c //Driver Code
-* tournament.h
-* tournament.c
-* players.dat
+* program5.c //Driver Code
+* data.h
+* list.c/.h
+* profile.c/.h (provided)
+* queue.c/.h
+* stack.c/.h
+* vector.c/.h
 * makefile
     * You must have the following labels in your makefile:
         * all - to compile all your code to an executable called ‘program4’ (no extension). Do not run.
@@ -332,7 +335,7 @@ Before your final submission, edit the content for each of these sections in thi
 
 Below is a reminder of the commands you need to use to submit your program.
 
-:warning: You have created several files and even a folder for this program. Be sure you add them to the repo. If you forget to add the files and the keys folder to the repo, your assignment will be considered late or not accepted at all.
+:warning: You have created several files and even a folder for this program. Be sure you add them to the repo. If you forget to add the files to the repo, your assignment will be considered late or not accepted at all.
 
 ```shell
 git status
