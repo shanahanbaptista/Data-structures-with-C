@@ -3,13 +3,15 @@
 ### PROGRAM 5 README FILE
 
 ## KNOWN BUGS AND INCOMPLETE PARTS:
-- What parts of the program you were not able to complete
+- The program runs successfully on Remote SSH
+- All memory blocks have been freed
 
 ## REFERENCES:
-- List any outside resources used
+- To delete a node in a doubly linked list, the basic concept was found here,
+https://www.geeksforgeeks.org/delete-a-node-in-a-doubly-linked-list/
 
 ## MISCELLANEOUS COMMENTS:
-- Anything you would like the grader to know
+- This program is a combined effort of Shanahan Michael Baptista (B00755889) and Erwin Joshua Palani (B00755963)
 
 # Assignment Description
 ## Program 5 - Sequential Collections
