@@ -2,7 +2,7 @@
 #define LIST_H
 
 typedef struct Data{
-	double value;
+	int value;
 }Data;
 
 typedef struct Node{

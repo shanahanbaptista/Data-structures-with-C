@@ -1,3 +1,59 @@
+#ifndef STACK_C
+#define STACK_C
+#include "stack.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+int top;
+
+Stackvector * newStackvector(){
+	Stackvector * sv = malloc(sizeof(Stackvector));
+	top = 0;
+	sv->data = newVector();
+	sv->push = pushStackvector;
+	sv->pop = popStackvector;
+	sv->peek = peekStackvector;
+	sv->clear = clearStackvector;
+	sv->delete = deleteStackvector; 
+	return sv;
+}
+
+void pushStackvector(Stackvector * sv, Data d){
+	sv->data->insert(sv->data, top, d);
+	top++;	
+}
+
+Data popStackvector(Stackvector * sv){
+	if(sv->data->current_size == 0)
+		return (Data){.value=-1};
+	else{
+		Data removed = * (sv->data->read(sv->data,sv->data->current_size-1));
+		sv->data->remove(sv->data,sv->data->current_size-1);
+		return removed;
+	}
+	
+}
+
+Data peekStackvector(Stackvector * sv){
+		if(sv->data->current_size == 0)
+			return (Data){.value=-1};
+		else
+			return * (sv->data->read(sv->data,sv->data->current_size-1));
+	
+}
+
+void clearStackvector(Stackvector * sv){	
+	for(int i=top;i>=0;i--){
+		sv->pop(sv);
+	}
+}
+
+void * deleteStackvector(Stackvector * sv){
+	sv->data->delete(sv->data);
+	free(sv);
+}
+
 Stacklist * newStacklist(){
 	Stacklist * sl = malloc(sizeof(Stacklist));
 	sl->stacklength = 0;
@@ -52,3 +108,6 @@ void deleteStackList(Stacklist * s){
 	s->data = NULL;
 	free(s);
 }
+
+#endif
+

@@ -1,13 +1,13 @@
-#include "stack.h"
-#include "stack.h"
-#include "queue.h"
-#include "queue.h"
-#include "vector.h"
-#include "vector.h"
 #include "list.h"
 #include "list.h"
-#include "profile.h"
-#include "profile.h"
+#include "queue.h"
+#include "queue.h"
+#include "stack.h"
+#include "stack.h"
+#include "vector.h"
+#include "vector.h"
+//#include "profile.h"
+//#include "profile.h"
 #include <assert.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -42,7 +42,6 @@ int main(){
 		data_array[i].value = (rand() % 20) + 1;
 		vect->insert(vect, i, data_array[i]);
 	}
-
 	assert(vect->max_size == 31);
 	assert(vect->current_size == 20);
 	printf("\n\t=========Test #2 Passed...            ===========\n\n");
@@ -133,7 +132,7 @@ int main(){
 	for(index = 0 ; index < 10 ; index++, test = test->next){
 		assert(test->data.value == index +1);
 	}
-	//***** Test that out of bounds indexes are appended to the list ****/
+	/***** Test that out of bounds indexes are appended to the list *****/
 	list->insert(list , 20, (Data){11});
 	assert(list->tail->data.value == 11);
 
@@ -159,6 +158,7 @@ int main(){
 	list = NULL;
 	fprintf(stderr, "\n\t\tTest #14 Passed...\n\n");
 
+
     fprintf(stderr, "\n\t=========Test #15: Stack Create ===========\n\n");
     Stacklist * sl = newStacklist();
     assert(sl->data->head == NULL);
@@ -180,7 +180,7 @@ int main(){
     for(int i = 0, j = 9; i < 10; i++, j--){
         assert(sv->data->read(sv->data, i)->value == i || sv->data->read(sv->data, i)->value == j);
     }
-    fprintf(stderr, "\n\t\tTest #16 Passed...\n\n");
+   fprintf(stderr, "\n\t\tTest #16 Passed...\n\n");
 
     fprintf(stderr, "\n\t=========Test #17: Stack Pop ===========\n\n");
     for(int i = 9; i >= 0; i--){
@@ -206,11 +206,11 @@ int main(){
         sl->pop(sl);
     }
 
-    for(int i = 0; i < 10; i++){
+   for(int i = 0; i < 10; i++){
         sv->push(sv, (Data){.value=i});
     }
     for(int i = 9; i >= 0; i--){
-        Data d = sv->peek(sv);
+        Data d = sv->peek(sv);	
         assert(d.value == i);
         d = sv->peek(sv);
         assert(d.value == i);
@@ -236,6 +236,7 @@ int main(){
     sv->delete(sv);
     fprintf(stderr, "\n\t\tTest #20 Passed (but check valgrind to be sure)...\n\n");
 
+
     fprintf(stderr, "\n\t=========Test #21: Queue Create ===========\n\n");
     Queuelist * ql = newQueuelist();
     assert(ql->data->head == NULL);
@@ -258,12 +259,13 @@ int main(){
     }
     fprintf(stderr, "\n\t\tTest #22 Passed...\n\n");
 
-    fprintf(stderr, "\n\t=========Test #23: Queue Dequeue ===========\n\n");
+   fprintf(stderr, "\n\t=========Test #23: Queue Dequeue ===========\n\n");
     for(int i = 0; i < 10; i++){
         Data d = ql->dequeue(ql);
         assert(d.value == i);
     }
-    for(int i = 0; i < 10; i++){
+    
+	for(int i = 0; i < 10; i++){
         Data d = qv->dequeue(qv);
         assert(d.value == i);
     }
@@ -298,7 +300,7 @@ int main(){
     }
     ql->clear(ql);
     assert(ql->dequeue(ql).value == -1);
-    for(int i = 0; i < 10; i++){
+   for(int i = 0; i < 10; i++){
         qv->enqueue(qv, (Data){.value=i});
     }
     qv->clear(qv);
@@ -307,10 +309,10 @@ int main(){
 
     fprintf(stderr, "\n\t=========Test #26: Queue Delete ===========\n\n");
     ql->delete(ql);
-    qv->delete(qv);
-    fprintf(stderr, "\n\t\tTest #26 Passed (but check valgrind to be sure)...\n\n");
+   qv->delete(qv);
+   fprintf(stderr, "\n\t\tTest #26 Passed (but check valgrind to be sure)...\n\n");
 
-	printf("\n\t========= Speed Tests ===========\n\n");
+/*	printf("\n\t========= Speed Tests ===========\n\n");
 
 	printf("Comparing Stacks and Queues used with Vector and Lists\n");
     sl = newStacklist();
@@ -324,6 +326,6 @@ int main(){
     ql->delete(ql);
     qv->delete(qv);
 	printf("\n\t========= Don't forget to submit your hash and check your code with Valgrind! ===========\n\n");
-
+*/
 	return 0;
 }
