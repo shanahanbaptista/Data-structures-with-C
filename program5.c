@@ -6,8 +6,8 @@
 #include "stack.h"
 #include "queue.h"
 #include "queue.h"
-//#include "profile.h"
-//#include "profile.h"
+#include "profile.h"
+#include "profile.h"
 #include <assert.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -312,7 +312,7 @@ int main(){
    qv->delete(qv);
    fprintf(stderr, "\n\t\tTest #26 Passed (but check valgrind to be sure)...\n\n");
 
-/*	printf("\n\t========= Speed Tests ===========\n\n");
+	printf("\n\t========= Speed Tests ===========\n\n");
 
 	printf("Comparing Stacks and Queues used with Vector and Lists\n");
     sl = newStacklist();
@@ -326,6 +326,6 @@ int main(){
     ql->delete(ql);
     qv->delete(qv);
 	printf("\n\t========= Don't forget to submit your hash and check your code with Valgrind! ===========\n\n");
-*/
+
 	return 0;
 }
