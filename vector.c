@@ -37,19 +37,21 @@ void insertVector(struct Vector * v,int index, Data d){
 Data * readVector(struct Vector * v, int index){
 	int count = 0;	
 	if(index < v->current_size){
-	for(int i=0; i<v->current_size;i++){ // for a different option of delete. count is the index for the valid elements.
-		if(count == index){
-			return &(v->data[i]);
+		for(int i=0; i<v->current_size;i++){ // for a different option of delete. count is the index for the valid elements.
+			if(count == index){
+				return &(v->data[i]);
+			}
+			else{
+				count++;
+			}
 		}
-		else{
-			count++;
-		}
-	}
 	}
 	else
-	return NULL;
+		return NULL;
 	if(v->data[index].value == 0)
 		return &(v->data[index]);
+
+	return NULL;
 }
 
 void removeVector(struct Vector * v, int index){
@@ -61,7 +63,7 @@ void removeVector(struct Vector * v, int index){
 	}	
 }
 
-void * deleteVector(struct Vector * v){
+void deleteVector(struct Vector * v){
 	free(v->data);
 	free(v);
 }

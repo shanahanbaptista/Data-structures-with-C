@@ -20,4 +20,7 @@ memcheck: program5
 	valgrind --leak-check=yes --track-origins=yes -v ./program5 #run executable with valgrind
 clean: program5
 	rm program5.o vector.o stack.o queue.o list.o profile.o program5 #remove object files and executables
-
+submit:
+	git add *
+	git commit -m "Program 5 from makefile"
+	git push

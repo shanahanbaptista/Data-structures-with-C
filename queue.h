@@ -35,7 +35,7 @@ void pushQueuevector(struct Queuevector * sv, Data d);
 Data popQueuevector(struct Queuevector * sv);
 Data peekQueuevector(struct Queuevector * sv);
 void clearQueuevector(struct Queuevector * sv);
-void * deleteQueuevector(struct Queuevector * sv);
+void deleteQueuevector(struct Queuevector * sv);
 
 #endif
 

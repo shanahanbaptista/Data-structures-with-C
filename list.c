@@ -1,3 +1,5 @@
+#ifndef LIST_C
+#define LIST_C
 #include <assert.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -93,3 +95,5 @@ void removeItem(List * l, int index){
 void deleteList(List * l){
 	free(l);
 }
+
+#endif

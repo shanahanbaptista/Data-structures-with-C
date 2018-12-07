@@ -35,7 +35,7 @@ void pushStackvector(struct Stackvector * sv, Data d);
 Data popStackvector(struct Stackvector * sv);
 Data peekStackvector(struct Stackvector * sv);
 void clearStackvector(struct Stackvector * sv);
-void * deleteStackvector(struct Stackvector * sv);
+void deleteStackvector(struct Stackvector * sv);
 
 #endif
 

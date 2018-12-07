@@ -20,6 +20,6 @@ Vector * newVector();
 void insertVector(struct Vector * v,int index, Data d);
 Data * readVector(struct Vector * v, int index);
 void removeVector(struct Vector * v, int index);
-void * deleteVector(struct Vector * v);
+void deleteVector(struct Vector * v);
 
 #endif

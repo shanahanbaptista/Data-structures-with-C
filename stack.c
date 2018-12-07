@@ -49,7 +49,7 @@ void clearStackvector(Stackvector * sv){
 	}
 }
 
-void * deleteStackvector(Stackvector * sv){
+void deleteStackvector(Stackvector * sv){
 	sv->data->delete(sv->data);
 	free(sv);
 }

@@ -49,7 +49,7 @@ void clearQueuevector(Queuevector * sv){
 	
 }
 
-void * deleteQueuevector(Queuevector * sv){
+void deleteQueuevector(Queuevector * sv){
 	sv->data->delete(sv->data);
 	free(sv);
 }
@@ -110,4 +110,3 @@ void deleteQueueList(Queuelist * q){
 }
 
 #endif
-
