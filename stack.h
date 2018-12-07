@@ -14,6 +14,7 @@ typedef struct Stacklist
 	void (*delete)(struct Stacklist *);
 }Stacklist;
 
+Stacklist * newStacklist();
 void pushStackList(struct Stacklist *, Data);
 Data popStackList(struct Stacklist *);
 Data peekStackList(struct Stacklist *);

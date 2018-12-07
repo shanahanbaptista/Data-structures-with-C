@@ -1,9 +1,10 @@
 #ifndef VECTOR_H
 #define VECTOR_H
+#include "list.h"
 
-typedef struct Data{
+/*typedef struct Data{
 	int value;
-}Data;
+}Data;*/
 
 typedef struct Vector{
 	int current_size;

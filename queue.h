@@ -14,6 +14,7 @@ typedef struct Queuelist
 	void (*delete)(struct Queuelist * q);
 }Queuelist;
 
+Queuelist * newQueuelist();
 void enqueueList(struct Queuelist *, Data);
 Data dequeueList(struct Queuelist *);
 Data peekQueueList(struct Queuelist *);
