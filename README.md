@@ -9,6 +9,7 @@ https://www.geeksforgeeks.org/delete-a-node-in-a-doubly-linked-list/
 ## Part A: Vectors
 
 Creation of a dynamic array data structure, Vector. Struct and internal array have been created on the heap (using malloc). Dynamic array has, at minimum, the following:
+
     ```
         Data data //A pointer to a Data struct array
         int current_size//an integer containing the current size
